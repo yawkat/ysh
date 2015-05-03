@@ -46,7 +46,7 @@ _build_prompt() {
         _pr "%F{red}"
     fi
     printf "%3d" $LAST_RETURN_VALUE
-    _pr '%f%K{black} %F{green}%B%b%K{black}'
+    _pr '%f%K{black} %F{green}%B%b%K{black} %T'
 
     _pr '%E%k' # move to EOL
 
@@ -67,3 +67,9 @@ _build_prompt() {
 
 setopt PROMPT_SUBST
 PROMPT='$(_build_prompt)'
+
+TMOUT=10
+
+TRAPALRM() {
+    zle reset-prompt
+}
