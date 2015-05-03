@@ -36,16 +36,17 @@ _pr() {
 }
 
 _build_prompt() {
-    _pr '%F{green}%K{black}'
-    _pr '%B%n@%m%b%K{black} ' # hostname
+    _pr '%K{black}'
+
+    _pr '%F{cyan}%~' # cwd
+
+    _pr '%F{green}%B « %n@%m%b%K{black} ' # hostname
 
     if ! [ $LAST_RETURN_VALUE = 0 ]; then
         _pr "%F{red}"
     fi
     printf "%3d" $LAST_RETURN_VALUE
-    _pr '%f%K{black} %F{green}%B»%b%K{black} '
-
-    _pr '%~' # cwd
+    _pr '%f%K{black} %F{green}%B%b%K{black}'
 
     _pr '%E%k' # move to EOL
 
