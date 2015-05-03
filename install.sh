@@ -2,7 +2,7 @@
 
 set -e
 
-echo "Cloning..."
+echo "Installing..."
 mkdir -p ~/.config
 cd ~/.config
 git clone https://github.com/yawkat/ysh.git
