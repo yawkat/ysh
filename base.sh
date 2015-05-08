@@ -28,5 +28,6 @@ alias l="ls -hl"
 source $YSH/keys.sh
 source $YSH/sudo.sh
 source $YSH/mvn.sh
+source $YSH/rsync.sh
 source $YSH/history.sh
 source $YSH/style.sh
