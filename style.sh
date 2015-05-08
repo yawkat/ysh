@@ -6,6 +6,10 @@ fi
 
 LAST_RETURN_VALUE=0
 
+# these two values are used to make the first prompt line only show up just after a command
+IN_COMMAND=true
+AFTER_COMMAND=
+
 # terminal title
 
 _set_title() {
@@ -14,11 +18,14 @@ _set_title() {
 
 precmd() {
     LAST_RETURN_VALUE=$?
+    AFTER_COMMAND=$IN_COMMAND
+    IN_COMMAND=false
     chpwd
 }
 
 preexec() {
     _set_title "$1"
+    IN_COMMAND=true
 }
 
 chpwd() {
@@ -35,7 +42,7 @@ _pr() {
     echo -n $1
 }
 
-_build_prompt() {
+_build_after_command_prompt() {
     _pr '%K{black}'
 
     _pr '%F{cyan}%~' # cwd
@@ -51,6 +58,12 @@ _build_prompt() {
     _pr '%E%k' # move to EOL
 
     echo ""
+}
+
+_build_prompt() {
+    if $AFTER_COMMAND; then
+        _build_after_command_prompt
+    fi
 
     _pr "%K{black}"
 
