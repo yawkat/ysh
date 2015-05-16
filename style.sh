@@ -72,7 +72,7 @@ _build_prompt() {
     fi
 
     if sudo -n echo 2>/dev/null > /dev/null; then
-        _pr '%F{yellow}s'
+        _pr '%F{yellow}#'
     fi
 
     _pr '%k%F{green}%# %f'
