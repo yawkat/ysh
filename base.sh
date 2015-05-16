@@ -23,7 +23,7 @@ zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 alias mvncp="mvn-color clean package"
 alias mvnci="mvn-color clean install"
 alias mvncsi="mvn-color clean source:jar install"
-alias l="ls -hl"
+alias l="ls -ahl"
 
 source $YSH/keys.sh
 source $YSH/sudo.sh
