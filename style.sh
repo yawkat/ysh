@@ -13,7 +13,9 @@ AFTER_COMMAND=
 # terminal title
 
 _set_title() {
-    print -Pn "\e]0;$1\a"
+    title="$1"
+    title+=" @ $HOST"
+    print -Pn "\e]0;$title\a"
 }
 
 precmd() {
