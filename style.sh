@@ -78,7 +78,7 @@ _build_prompt() {
         _pr '%F{cyan}p'
     fi
 
-    if sudo -n echo 2>/dev/null > /dev/null; then
+    if sudo -n true 2>/dev/null > /dev/null; then
         _pr '%F{yellow}#'
     fi
 
