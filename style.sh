@@ -57,6 +57,11 @@ _build_after_command_prompt() {
     printf "%3d" $LAST_RETURN_VALUE
     _pr '%f%K{black} %F{green}%B%b%K{black} %T'
 
+    branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null || true)
+    if test "$branch"; then
+        _pr "%F{green}%B « %b%K{black}%F{cyan}$branch"
+    fi
+
     _pr '%E%k' # move to EOL
 
     echo ""
