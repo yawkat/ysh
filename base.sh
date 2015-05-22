@@ -25,6 +25,11 @@ alias mvnci="mvn-color clean install"
 alias mvncsi="mvn-color clean source:jar install"
 alias l="ls -ahl"
 
+# faster reset
+if type tput > /dev/null; then
+    alias reset="tput reset"
+fi
+
 source $YSH/keys.sh
 source $YSH/sudo.sh
 source $YSH/mvn.sh
