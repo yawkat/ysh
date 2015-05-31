@@ -15,7 +15,7 @@ AFTER_COMMAND=
 _set_title() {
     title="$1"
     title+=" @ $HOST"
-    print -Pn "\e]0;$title\a"
+    echo -en "\e]0;$title\a"
 }
 
 precmd() {
@@ -36,7 +36,7 @@ chpwd() {
         title+="[$LAST_RETURN_VALUE] "
     fi
     title+='%~'
-    _set_title $title
+    _set_title "$title"
 }
 
 ## print command
