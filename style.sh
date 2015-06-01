@@ -35,7 +35,7 @@ chpwd() {
     if ! [ $LAST_RETURN_VALUE = 0 ]; then
         title+="[$LAST_RETURN_VALUE] "
     fi
-    title+='%~'
+    title+=$(print -Pn '%~')
     _set_title "$title"
 }
 
