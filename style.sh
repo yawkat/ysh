@@ -78,8 +78,10 @@ _build_prompt() {
         _pr '%F{cyan}p'
     fi
 
-    if sudo -n true 2>/dev/null > /dev/null; then
-        _pr '%F{yellow}#'
+    if $poll_sudo; then
+        if sudo -n true 2>/dev/null > /dev/null; then
+            _pr '%F{yellow}#'
+        fi
     fi
 
     _pr '%k%F{green}%# %f'

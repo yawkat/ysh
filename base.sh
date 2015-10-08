@@ -1,5 +1,7 @@
 YSH=$(dirname "$0")
 
+. "$YSH/options"
+
 alias ysh-reload="source $YSH/ysh.sh"
 alias ysh-colors=$YSH/colors.sh
 
