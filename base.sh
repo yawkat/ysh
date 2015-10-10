@@ -22,9 +22,9 @@ setopt completeinword
 zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 
 # aliases
-alias mvncp="mvn-color clean package"
-alias mvnci="mvn-color clean install"
-alias mvncsi="mvn-color clean source:jar install"
+alias mvncp="mvn clean package"
+alias mvnci="mvn clean install"
+alias mvncsi="mvn clean source:jar install"
 alias l="ls -ahl"
 alias dmesg-f="dmesg -w -H --color=always"
 
@@ -35,7 +35,6 @@ fi
 
 source $YSH/keys.sh
 source $YSH/sudo.sh
-source $YSH/mvn.sh
 source $YSH/rsync.sh
 source $YSH/history.sh
 source $YSH/style.sh
