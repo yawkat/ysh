@@ -89,9 +89,3 @@ _build_prompt() {
 
 setopt PROMPT_SUBST
 PROMPT='$(_build_prompt)'
-
-TMOUT=10
-
-TRAPALRM() {
-    zle reset-prompt
-}
