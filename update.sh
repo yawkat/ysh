@@ -9,7 +9,7 @@ ysh-update() {
     cd "$prev_dir"
 }
 
-# if older than one day, update
-if test "`find $YSH/.last-update -mtime +1`"; then
+# if older than seven days, update
+if test "`find $YSH/.last-update -mtime +7`"; then
     ysh-update
 fi
