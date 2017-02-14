@@ -27,6 +27,7 @@ alias mvnci="mvn clean install"
 alias mvncsi="mvn clean source:jar install"
 alias l="ls -ahl"
 alias dmesg-f="dmesg -w -H --color=always"
+alias pssh="ssh -o 'UserKnownHostsFile /dev/null'"
 
 # faster reset
 if type tput > /dev/null; then
