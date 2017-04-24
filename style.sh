@@ -4,6 +4,9 @@ if fortune 2> /dev/null; then
     echo ""
 fi
 
+# can be set in options
+host_color="${host_color:-magenta}"
+
 LAST_RETURN_VALUE=0
 
 # these two values are used to make the first prompt line only show up just after a command
@@ -49,9 +52,21 @@ _build_after_command_prompt() {
 
     _pr '%F{cyan}%~' # cwd
 
-    _pr '%F{green}%B « %n@%m%b%K{black} ' # hostname
+    _pr "%F{$host_color}%B « "
 
-    if ! [ $LAST_RETURN_VALUE = 0 ]; then
+    if [ "$USERNAME" = "root" ]; then
+        _pr "%F{white}%K{red}%n%F{$host_color}%K{black}"
+    else
+        _pr '%n'
+    fi
+
+    _pr '@%m' # hostname
+
+    _pr '%b%K{black} '
+
+    if [ $LAST_RETURN_VALUE = 0 ]; then
+        _pr "%F{green}"
+    else
         _pr "%F{red}"
     fi
     printf "%3d" $LAST_RETURN_VALUE
